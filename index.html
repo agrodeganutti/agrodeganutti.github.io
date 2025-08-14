@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Agro Deganutti — Assistência Técnica & Crédito Rural (PRONAF, PRONAMP, BNDES)</title>
+        <meta name="description"
+            content="Agro Deganutti: assistência técnica agronômica, projetos de crédito rural (PRONAF, PRONAMP, BNDES) e gestão para produtores. Sarandi-PR." />
+        <meta name="theme-color" content="#1A6C2E" />
+        <meta property="og:title" content="Agro Deganutti — Assistência Técnica & Crédito Rural" />
+        <meta property="og:description"
+            content="Projetos de crédito rural (PRONAF, PRONAMP, BNDES), consultoria agronômica e gestão técnica." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --bg: #0e1a12;
+                --bg-soft: #101f16;
+                --card: #131f17;
+                --brand: #1A6C2E;
+                --brand-2: #6CC24A;
+                --text: #e8f0ea;
+                --muted: #a9b7ad;
+                --stroke: #243728;
+                --accent: #bfe7a5;
+                --danger: #d84b4b;
+                --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+                --radius: 18px;
+            }
+
+            * {
+                box-sizing: border-box
+            }
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(180deg, var(--bg), #0b1410);
+                color: var(--text);
+                font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+                line-height: 1.55
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none
+            }
+
+            img {
+                max-width: 100%;
+                display: block
+            }
+
+            .container {
+                width: min(1150px, 92vw);
+                margin: 0 auto
+            }
+
+            /* Header */
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 50;
+                background: rgba(16, 31, 22, .8);
+                backdrop-filter: saturate(140%) blur(10px);
+                border-bottom: 1px solid var(--stroke)
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 0
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-weight: 700
+            }
+
+            .logo {
+                width: 34px;
+                height: 34px;
+                border-radius: 10px;
+                background: conic-gradient(from 120deg at 50% 50%, var(--brand), var(--brand-2));
+                display: grid;
+                place-items: center;
+                box-shadow: var(--shadow)
+            }
+
+            .logo svg {
+                filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .3))
+            }
+
+            nav ul {
+                display: flex;
+                gap: 20px;
+                list-style: none;
+                margin: 0;
+                padding: 0
+            }
+
+            nav a {
+                padding: 10px 12px;
+                border-radius: 12px;
+                border: 1px solid transparent
+            }
+
+            nav a:hover {
+                border-color: var(--stroke);
+                background: #0f1a13
+            }
+
+            .cta {
+                display: flex;
+                gap: 10px;
+                align-items: center
+            }
+
+            .btn {
+                padding: 10px 14px;
+                border-radius: 14px;
+                border: 1px solid var(--stroke);
+                background: linear-gradient(180deg, #1b2b20, #0f1a13);
+                color: var(--text);
+                box-shadow: var(--shadow);
+                font-weight: 600
+            }
+
+            .btn:hover {
+                transform: translateY(-1px)
+            }
+
+            .btn.brand {
+                background: linear-gradient(180deg, var(--brand), #145224);
+                border-color: #0f3a18
+            }
+
+            .btn.ghost {
+                background: transparent
+            }
+
+            /* Hero */
+            .hero {
+                position: relative;
+                overflow: hidden
+            }
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: -120px -50px auto -50px;
+                height: 520px;
+                background: radial-gradient(1200px 380px at 50% -120px, rgba(108, 194, 74, .25), transparent 60%), radial-gradient(800px 300px at 20% 0, rgba(26, 108, 46, .4), transparent 60%), radial-gradient(800px 300px at 80% 0, rgba(26, 108, 46, .3), transparent 60%);
+                pointer-events: none
+            }
+
+            .hero .wrap {
+                display: grid;
+                grid-template-columns: 1.1fr .9fr;
+                gap: 36px;
+                align-items: center;
+                padding: 56px 0 24px
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                gap: 8px;
+                align-items: center;
+                padding: 6px 10px;
+                border: 1px solid var(--stroke);
+                border-radius: 999px;
+                color: var(--accent);
+                background: rgba(26, 108, 46, .08)
+            }
+
+            .title {
+                font-size: clamp(32px, 4.4vw, 56px);
+                line-height: 1.08;
+                margin: 12px 0 10px;
+                font-weight: 800
+            }
+
+            .subtitle {
+                font-size: clamp(16px, 1.6vw, 18px);
+                color: var(--muted)
+            }
+
+            .hero .actions {
+                display: flex;
+                gap: 12px;
+                margin-top: 18px;
+                flex-wrap: wrap
+            }
+
+            .statgrid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                margin-top: 26px
+            }
+
+            .stat {
+                padding: 18px;
+                border-radius: 16px;
+                background: linear-gradient(180deg, #111d16, #0b160f);
+                border: 1px solid var(--stroke)
+            }
+
+            .stat .kpi {
+                font-size: 22px;
+                font-weight: 800
+            }
+
+            /* Cards */
+            section {
+                padding: 60px 0;
+                border-top: 1px solid var(--stroke)
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px
+            }
+
+            .card {
+                background: linear-gradient(180deg, #101a14, #0b1610);
+                border: 1px solid var(--stroke);
+                border-radius: var(--radius);
+                padding: 20px;
+                box-shadow: var(--shadow)
+            }
+
+            .card h3 {
+                margin: 10px 0 8px
+            }
+
+            .card p {
+                color: var(--muted)
+            }
+
+            .badge {
+                display: inline-flex;
+                gap: 8px;
+                align-items: center;
+                background: rgba(108, 194, 74, .1);
+                color: var(--accent);
+                padding: 6px 10px;
+                border-radius: 999px;
+                border: 1px solid #224b2d
+            }
+
+            .list {
+                display: grid;
+                gap: 10px;
+                margin-top: 12px
+            }
+
+            .list li {
+                list-style: none;
+                display: flex;
+                gap: 10px;
+                align-items: flex-start
+            }
+
+            .list svg {
+                flex: 0 0 auto;
+                margin-top: 2px
+            }
+
+            /* Credit Lines */
+            .lines {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px
+            }
+
+            .line {
+                padding: 20px;
+                border-radius: var(--radius);
+                border: 1px solid var(--stroke);
+                background: linear-gradient(180deg, #0f1a13, #0a140e)
+            }
+
+            .line h4 {
+                margin: 6px 0
+            }
+
+            .pill {
+                display: inline-flex;
+                gap: 8px;
+                align-items: center;
+                padding: 6px 10px;
+                border-radius: 999px;
+                border: 1px solid var(--stroke);
+                color: var(--accent)
+            }
+
+            /* Timeline */
+            .steps {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+                margin-top: 10px
+            }
+
+            .step {
+                padding: 18px;
+                border-radius: 16px;
+                border: 1px solid var(--stroke);
+                background: linear-gradient(180deg, #0e1912, #0a140e)
+            }
+
+            .step .n {
+                font-weight: 800;
+                color: var(--brand-2)
+            }
+
+            /* About & Contact */
+            .about {
+                display: grid;
+                grid-template-columns: 1.2fr .8fr;
+                gap: 22px
+            }
+
+            .contact {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px
+            }
+
+            label {
+                font-size: 14px;
+                color: var(--muted)
+            }
+
+            input,
+            textarea,
+            select {
+                width: 100%;
+                padding: 12px 14px;
+                border-radius: 14px;
+                background: #0c1510;
+                border: 1px solid var(--stroke);
+                color: var(--text)
+            }
+
+            textarea {
+                min-height: 120px;
+                resize: vertical
+            }
+
+            .disclaimer {
+                font-size: 12px;
+                color: var(--muted)
+            }
+
+            /* Footer */
+            footer {
+                border-top: 1px solid var(--stroke);
+                padding: 26px 0;
+                color: var(--muted);
+                background: #0c1510
+            }
+
+            .footergrid {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 12px;
+                align-items: center
+            }
+
+            .social {
+                display: flex;
+                gap: 10px
+            }
+
+            .tiny {
+                font-size: 12px
+            }
+
+            /* Utilities */
+            h2.section-title {
+                font-size: clamp(22px, 2.6vw, 28px);
+                margin: 0 0 14px
+            }
+
+            .muted {
+                color: var(--muted)
+            }
+
+            .sp {
+                height: 10px
+            }
+
+            .divider {
+                height: 1px;
+                background: var(--stroke);
+                margin: 14px 0
+            }
+
+            .hide-desktop {
+                display: none
+            }
+
+            @media (max-width:980px) {
+                .hero .wrap {
+                    grid-template-columns: 1fr
+                }
+
+                .grid,
+                .lines,
+                .steps {
+                    grid-template-columns: 1fr
+                }
+
+                .about {
+                    grid-template-columns: 1fr
+                }
+
+                nav ul {
+                    display: none
+                }
+
+                .hide-desktop {
+                    display: inline-flex
+                }
+            }
+        </style>
+        <script>
+            function toggleMenu() {
+                const nav = document.querySelector('nav ul');
+                if (!nav) return;
+                if (getComputedStyle(nav).display === 'none') {
+                    nav.style.display = 'flex'; nav.style.flexDirection = 'column'; nav.style.gap = '8px';
+                } else { nav.style.display = 'none' }
+            }
+            function submitForm(e) {
+                e.preventDefault();
+                const form = e.target;
+                const data = Object.fromEntries(new FormData(form).entries());
+                const msg = `Olá, sou ${data.nome || 'Produtor(a)'} e gostaria de informações sobre ${data.interesse || 'assistência técnica e crédito'}.`;
+                const phone = '5544998180434';
+                const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+                window.open(url, '_blank');
+            }
+        </script>
+        <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Agro Deganutti",
+    "legalName": "DEGANUTTI ACESSORIA AGRONOMICA LTDA",
+    "url": "https://example.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sarandi",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55 44 99818-0434",
+      "contactType": "customer service",
+      "areaServed": "BR",
+      "availableLanguage": ["Portuguese"]
+    },
+    "identifier": "CNPJ 62.233.163/0001-71"
+  }
+  </script>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="container nav">
+                <div class="brand">
+                    <div class="logo" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M12 21c5-3 8-7 8-11 0-4-3-7-8-7S4 6 4 10c0 4 3 8 8 11Z" stroke="white"
+                                stroke-width="1.5" />
+                            <path d="M7 11c2-1 4-2 5-5" stroke="white" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div style="font-size:14px;color:var(--muted);font-weight:600;letter-spacing:.2px">Agro
+                            Deganutti</div>
+                        <div style="font-size:12px;color:var(--muted)">Assistência Técnica & Crédito Rural</div>
+                    </div>
+                </div>
+                <nav aria-label="Navegação principal">
+                    <button class="btn ghost hide-desktop" aria-label="Abrir menu" onclick="toggleMenu()">Menu</button>
+                    <ul>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#linhas">Linhas de Crédito</a></li>
+                        <li><a href="#como">Como Atuamos</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="cta">
+                    <a class="btn ghost" href="tel:+5544998180434" aria-label="Ligar">Ligar</a>
+                    <a class="btn brand" href="https://wa.me/5544998180434" target="_blank" rel="noopener">WhatsApp</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero" id="topo">
+            <div class="container wrap">
+                <div>
+                    <span class="eyebrow" aria-label="Informações legais">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M12 3l8 4v6c0 5-4 6-8 8-4-2-8-3-8-8V7l8-4Z" stroke="currentColor" />
+                        </svg>
+                        CNPJ 62.233.163/0001-71 • Sarandi‑PR
+                    </span>
+                    <h1 class="title">Consultoria agronômica e projetos de crédito rural com foco em resultado</h1>
+                    <p class="subtitle">Elaboramos, acompanhamos e gerimos financiamentos PRONAF, PRONAMP e BNDES, com
+                        assistência técnica contínua para aumentar produtividade, reduzir riscos e melhorar a
+                        rentabilidade do seu negócio rural.</p>
+                    <div class="hero .actions">
+                        <a class="btn brand" href="#contato">Solicitar proposta</a>
+                        <a class="btn" href="#linhas">Ver linhas de crédito</a>
+                    </div>
+                    <div class="statgrid" role="list" aria-label="Métricas de confiança">
+                        <div class="stat" role="listitem">
+                            <div class="kpi">Assistência técnica</div>
+                            <div class="muted">Plano personalizado por ciclo</div>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <div class="kpi">Projetos completos</div>
+                            <div class="muted">Documentação e viabilidade</div>
+                        </div>
+                        <div class="stat" role="listitem">
+                            <div class="kpi">Crédito seguro</div>
+                            <div class="muted">Conformidade com normativos</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card" aria-label="Destaques">
+                        <span class="badge">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M4 12h16M12 4v16" stroke="currentColor" />
+                            </svg>
+                            Soluções para pequeno, médio e grande produtor
+                        </span>
+                        <h3 style="margin-top:12px">O que entregamos</h3>
+                        <ul class="list">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>
+                                Projetos de investimento, custeio e comercialização alinhados ao seu fluxo de caixa.
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>
+                                Assessoria do protocolo ao desembolso e pós‑crédito (monitoria e relatórios).
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>
+                                Conformidade com PRONAF, PRONAMP e BNDES, incluindo exigibilidades e limites.
+                            </li>
+                        </ul>
+                        <div class="divider"></div>
+                        <div class="muted tiny">DEGANUTTI ACESSORIA AGRONOMICA LTDA — Nome Fantasia: Agro Deganutti •
+                            Fone +55 44 99818‑0434</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos">
+            <div class="container">
+                <h2 class="section-title">Serviços</h2>
+                <p class="muted">Atuação ponta a ponta: diagnóstico, projeto, crédito, execução e resultados.</p>
+                <div class="grid" style="margin-top:14px">
+                    <article class="card" aria-labelledby="s1">
+                        <span class="pill">Assistência técnica continuada</span>
+                        <h3 id="s1">Planejamento e acompanhamento de safra</h3>
+                        <p>Visitas técnicas, recomendação de insumos, monitoramento de pragas e doenças, manejo de solo
+                            e água, indicadores de produtividade e rentabilidade.</p>
+                    </article>
+                    <article class="card" aria-labelledby="s2">
+                        <span class="pill">Projetos de crédito rural</span>
+                        <h3 id="s2">Custeio, investimento e comercialização</h3>
+                        <p>Elaboração completa do projeto, DAP/CAF, orçamento, cronograma de realização, análise de
+                            viabilidade e suporte até o desembolso.</p>
+                    </article>
+                    <article class="card" aria-labelledby="s3">
+                        <span class="pill">Gestão & conformidade</span>
+                        <h3 id="s3">Compliance e relatórios</h3>
+                        <p>Organização documental, registros técnicos, relatórios para agentes financeiros e órgãos
+                            reguladores, integridade e rastreabilidade das informações.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Linhas de Crédito -->
+        <section id="linhas">
+            <div class="container">
+                <h2 class="section-title">Linhas de Crédito</h2>
+                <p class="muted">Adequação às regras vigentes e ao perfil de cada produtor.</p>
+                <div class="lines" style="margin-top:14px">
+                    <div class="line">
+                        <h4>PRONAF</h4>
+                        <p class="muted">Crédito para agricultura familiar: investimento, custeio e agroindústria.
+                            Avaliamos enquadramento, limites e bônus de adimplência quando aplicável.</p>
+                        <ul class="list">
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>Projeto técnico e orçamento detalhado</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>Compatibilização com CAF/DAP</li>
+                        </ul>
+                    </div>
+                    <div class="line">
+                        <h4>PRONAMP</h4>
+                        <p class="muted">Financiamento para médio produtor: investimento, custeio e modernização da
+                            atividade, considerando limites, garantias e prazos praticados.</p>
+                        <ul class="list">
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>Estudos de viabilidade e fluxo de caixa</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>Estratégia de garantias</li>
+                        </ul>
+                    </div>
+                    <div class="line">
+                        <h4>BNDES</h4>
+                        <p class="muted">Programas de fomento e investimento de longo prazo via agentes financeiros
+                            credenciados. Selecionamos o programa e o banco adequados ao seu projeto.</p>
+                        <ul class="list">
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>Enquadramento e documentação exigida</li>
+                            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                </svg>Acompanhamento de execução</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="margin-top:16px">
+                    <strong>Importante:</strong> taxas, limites e condições de crédito são definidos pelos agentes
+                    financeiros e normativos vigentes. Oferecemos orientação técnica para enquadramento e tomada de
+                    decisão; não somos instituição financeira.
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Atuamos -->
+        <section id="como">
+            <div class="container">
+                <h2 class="section-title">Como atuamos</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="n">1. Diagnóstico</div>
+                        <div class="muted">Levantamento técnico e documental da propriedade e objetivos do produtor.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="n">2. Projeto</div>
+                        <div class="muted">Dimensionamento, orçamento, cronograma e viabilidade econômico‑financeira.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="n">3. Crédito</div>
+                        <div class="muted">Protocolo, tratativas com o banco, garantias e ajustes até o desembolso.
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="n">4. Acompanhamento</div>
+                        <div class="muted">Assistência técnica, relatórios, indicadores e suporte ao cumprimento de
+                            metas.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre & Contato -->
+        <section id="sobre">
+            <div class="container about">
+                <div>
+                    <h2 class="section-title">Sobre a Agro Deganutti</h2>
+                    <p>Razão Social: <strong>DEGANUTTI ACESSORIA AGRONOMICA LTDA</strong> • Nome Fantasia: <strong>Agro
+                            Deganutti</strong></p>
+                    <p class="muted">Somos uma assessoria agronômica sediada em <strong>Sarandi‑PR</strong>, com foco em
+                        assistência técnica e projetos de crédito rural. Atuamos com transparência, metodologia e
+                        compromisso com resultados sustentáveis para o produtor.</p>
+                    <div class="grid" style="grid-template-columns:repeat(2,1fr);margin-top:6px">
+                        <div class="card"><strong>Especialidades</strong>
+                            <div class="sp"></div>
+                            <ul class="list">
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                    </svg>Grãos, horticultura e pecuária</li>
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                    </svg>Irrigação e conservação de solo</li>
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                    </svg>Gestão técnica e custos</li>
+                            </ul>
+                        </div>
+                        <div class="card"><strong>Diferenciais</strong>
+                            <div class="sp"></div>
+                            <ul class="list">
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                    </svg>Atuação ponta a ponta</li>
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                    </svg>Relatórios claros e objetivos</li>
+                                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 13l4 4L19 7" stroke="var(--brand-2)" stroke-width="2" />
+                                    </svg>Transparência e conformidade</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="contato">
+                    <div class="card">
+                        <h2 class="section-title">Fale conosco</h2>
+                        <form onsubmit="submitForm(event)">
+                            <div class="contact">
+                                <div>
+                                    <label for="nome">Nome</label>
+                                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+                                </div>
+                                <div>
+                                    <label for="fone">Telefone</label>
+                                    <input type="tel" id="fone" name="fone" placeholder="(44) 9 9818-0434" />
+                                </div>
+                                <div>
+                                    <label for="interesse">Interesse</label>
+                                    <select id="interesse" name="interesse">
+                                        <option value="Assistência técnica">Assistência técnica</option>
+                                        <option value="Projeto de crédito (PRONAF)">Projeto de crédito (PRONAF)</option>
+                                        <option value="Projeto de crédito (PRONAMP)">Projeto de crédito (PRONAMP)
+                                        </option>
+                                        <option value="Projeto de crédito (BNDES)">Projeto de crédito (BNDES)</option>
+                                        <option value="Outros">Outros</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="msg">Mensagem</label>
+                                    <textarea id="msg" name="msg"
+                                        placeholder="Conte rapidamente sua necessidade"></textarea>
+                                </div>
+                                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px">
+                                    <button type="submit" class="btn brand">Enviar pelo WhatsApp</button>
+                                    <a class="btn" href="tel:+5544998180434">Ligar agora</a>
+                                </div>
+                                <div class="disclaimer">Ao enviar, você será direcionado(a) ao WhatsApp +55 44
+                                    99818‑0434 para finalizar o atendimento.</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer>
+            <div class="container footergrid">
+                <div>
+                    <div><strong>Agro Deganutti</strong> — DEGANUTTI ACESSORIA AGRONOMICA LTDA</div>
+                    <div class="tiny">CNPJ 62.233.163/0001-71 • Sarandi‑PR • Fone <a href="tel:+5544998180434">+55 44
+                            99818‑0434</a></div>
+                </div>
+                <div class="social">
+                    <a class="btn ghost" href="https://wa.me/5544998180434" target="_blank" rel="noopener"
+                        aria-label="WhatsApp">WhatsApp</a>
+                    <a class="btn ghost" href="#topo">Voltar ao topo</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>
